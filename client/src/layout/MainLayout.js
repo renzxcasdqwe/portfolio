@@ -1,35 +1,32 @@
 import React from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { Box } from "@mui/material";
+// import Footer from "../components/Footer";
 import BackgroundAnimation from "../components/BackgroundAnimation";
+import { Box } from "@mui/material";
 
 const MainLayout = ({ children }) => {
   return (
-    <>
+    <Box
+      sx={{
+        position: "relative",
+        minHeight: "100vh",
+        overflow: "hidden",
+      }}
+    >
       <BackgroundAnimation />
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-          backgroundColor: "transparent",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <Header />
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            color: "#fff",
-            padding: 3,
-          }}
-        >
+        <Box component="main" sx={{ flexGrow: 1, color: "#fff", padding: 3 }}>
           {children}
         </Box>
-        <Footer />
+        {/* <Footer /> */}
       </Box>
-    </>
+    </Box>
   );
 };
 
